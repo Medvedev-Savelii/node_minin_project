@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
 const chalk = require("chalk");
+const initDatabase = require("./startUp/initDatabase");
 
 const PORT = config.get("port") ?? 5000;
 
@@ -17,6 +18,9 @@ if (process.env.NODE_ENV === "production") {
 
 const start = async () => {
   try {
+    mongoose.connection.once("open", () => {
+      initDatabase();
+    });
     await mongoose.connect(config.get("mongoUri"));
     console.log(chalk.bgBlue("Connect DB"));
     app.listen(PORT, () => {
