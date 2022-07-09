@@ -1,7 +1,7 @@
 {
 	"port": 8080,
 	"mongoUri": "mongodb+srv://admin:123@cluster0.ahxvvop.mongodb.net/app?retryWrites=true&w=majority",
-	"accessSecret": 123,
-	"refreshSecret": 123
+	"accessSecret": "sava",
+	"refreshSecret": "zaha"
 
 }
