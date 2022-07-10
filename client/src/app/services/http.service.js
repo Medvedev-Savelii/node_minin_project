@@ -60,11 +60,13 @@ function transormData(data) {
           }))
         : data;
 }
+
 http.interceptors.response.use(
     (res) => {
         if (configFile.isFireBase) {
             res.data = { content: transormData(res.data) };
         }
+        res.data = { content: res.data };
         return res;
     },
     function (error) {
